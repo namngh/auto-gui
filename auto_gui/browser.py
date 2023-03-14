@@ -1,4 +1,5 @@
-from auto_gui import utils, error
+from .error import INVALID_URI
+from .utils import uri_validator
 import webbrowser
 
 class Browser(object):
@@ -7,8 +8,8 @@ class Browser(object):
         self.browser = data.get("browser", None)
         self.url = data.get("url")
 
-        if not utils.uri_validator(self.url):
-            raise Exception(error.INVALID_URI)
+        if not uri_validator(self.url):
+            raise Exception(INVALID_URI)
 
         if self.url[-1] == "/":
             self.url = self.url[:-1]

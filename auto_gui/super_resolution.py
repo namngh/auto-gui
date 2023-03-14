@@ -1,6 +1,6 @@
 from cv2 import dnn_superres
 
-from auto_gui import error
+from .error import SR_MODEL_NOT_FOUND
 
 # https://github.com/opencv/opencv_contrib/tree/master/modules/dnn_superres
 DEFAULT_MODEL = {
@@ -18,7 +18,7 @@ class SuperResolution(object):
     def read_model(self):
         model_path = DEFAULT_MODEL.get(self.model)
         if model_path == None:
-            raise Exception(error.SR_MODEL_NOT_FOUND)
+            raise Exception(SR_MODEL_NOT_FOUND)
 
         self.sr.readModel(model_path)
 

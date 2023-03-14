@@ -1,7 +1,7 @@
 import keras_ocr
 from thefuzz import process
 
-from auto_gui import error
+from .error import INVALID_TEXT_TYPE, TEXT_NOT_FOUND
 
 
 class TextDetection(object):
@@ -15,10 +15,10 @@ class TextDetection(object):
 
     def get_text_positions(self, match_text):
         if not isinstance(match_text, str):
-            raise Exception(error.INVALID_TEXT_TYPE)
+            raise Exception(INVALID_TEXT_TYPE)
 
         if len(self.prediction_groups[0]) == 0:
-            raise Exception(error.TEXT_NOT_FOUND)
+            raise Exception(TEXT_NOT_FOUND)
 
         # Remove duplicate
         all_text = set()
