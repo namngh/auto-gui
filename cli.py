@@ -1,6 +1,6 @@
 import typer
 
-from auto_gui import parsing
+from auto_gui import Parsing
 
 app = typer.Typer()
 
@@ -11,7 +11,7 @@ def run(path: str = typer.Option(
         "-p",
         prompt="Script path",
     )):
-    parsing.Parsing(script_path=path).run()
+    Parsing(script_path=path).run()
 
 if __name__ == "__main__":
     app()

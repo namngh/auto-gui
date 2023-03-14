@@ -1,3 +1,4 @@
 open_browser https://www.youtube.com/
 sleep 5
-click library
+click text library
+click template ../../image.png

@@ -1,4 +1,5 @@
-from auto_gui import progressing, error
+from .error import MISSING_SCRIPT
+from .progressing import Progressing
 
 class Parsing(object):
     def __init__(self, **data):
@@ -7,7 +8,7 @@ class Parsing(object):
 
         if self.script == None:
             if self.script_path == None:
-                raise Exception(error.MISSING_SCRIPT)
+                raise Exception(MISSING_SCRIPT)
             
             self.read_script()
 
@@ -18,7 +19,7 @@ class Parsing(object):
             self.script = f.readlines()
 
     def parse(self):
-        progress = progressing.Progressing()
+        progress = Progressing()
         for line in self.script:
             line.strip()
 
